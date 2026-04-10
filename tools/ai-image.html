@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>BunnyOnt | AI Image Generator</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 40px;
+    }
+    header h1 {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .tool-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 600px;
+      text-align: center;
+    }
+    .tool-box textarea {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .tool-box button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tool-box button:hover {
+      background-color: #e63939;
+    }
+  </style>
+</head>
+<body>
+  <!-- 品牌導覽列 -->
+  <header>
+    <img src="../assets/logo/bunnyont-logo.png" alt="BunnyOnt Logo">
+    <h1>BunnyOnt 工具中心</h1>
+    <nav>
+      <a href="../index.html">🏠 回首頁</a>
+    </nav>
+  </header>
+
+  <!-- 工具內容 -->
+  <div class="tool-box">
+    <h2>AI Image Generator</h2>
+    <p>輸入文字描述，生成 AI 圖像。</p>
+
+    <!-- 輸入區 -->
+    <textarea id="prompt" placeholder="請輸入圖像描述，例如：一隻可愛的兔子在草地上"></textarea>
+
+    <button id="generateBtn">生成圖像</button>
+
+    <!-- 結果區 -->
+    <div id="result" style="margin-top:20px;"></div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // BunnyOnt AI Image Generator 工具互動邏輯
+    document.getElementById("generateBtn").addEventListener("click", () => {
+      const prompt = document.getElementById("prompt").value.trim();
+      if (!prompt) {
+        document.getElementById("result").innerHTML = "<p style='color:red;'>請先輸入圖像描述。</p>";
+      } else {
+        document.getElementById("result").innerHTML = "<p style='color:green;'>已輸入描述：「" + prompt + "」，準備生成圖像...</p>";
+        // ⚠️ 注意：這裡只是前端展示，真正生成需要後端 API 或 AI 圖像服務
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Node / npm
+node_modules/
+npm-debug.log*
+
+# Build / Dist
+dist/
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Git
+.git/

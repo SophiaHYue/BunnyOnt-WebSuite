@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>BunnyOnt | Meme Maker</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 40px;
+    }
+    header h1 {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .tool-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 700px;
+      text-align: center;
+    }
+    .tool-box input {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .tool-box button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tool-box button:hover {
+      background-color: #e63939;
+    }
+    #preview {
+      margin-top: 20px;
+      text-align: center;
+    }
+    #preview img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 品牌導覽列 -->
+  <header>
+    <img src="../assets/logo/bunnyont-logo.png" alt="BunnyOnt Logo">
+    <h1>BunnyOnt 工具中心</h1>
+    <nav>
+      <a href="../index.html">🏠 回首頁</a>
+    </nav>
+  </header>
+
+  <!-- 工具內容 -->
+  <div class="tool-box">
+    <h2>Meme Maker</h2>
+    <p>上傳圖片並輸入文字，生成 Meme。</p>
+
+    <!-- 上傳區 -->
+    <input type="file" id="memeImage" accept="image/*">
+    <input type="text" id="topText" placeholder="上方文字">
+    <input type="text" id="bottomText" placeholder="下方文字">
+
+    <button id="generateBtn">生成 Meme</button>
+
+    <!-- 預覽區 -->
+    <div id="preview"></div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // BunnyOnt Meme Maker 工具互動邏輯
+    document.getElementById("generateBtn").addEventListener("click", () => {
+      const file = document.getElementById("memeImage").files[0];
+      const topText = document.getElementById("topText").value.trim();
+      const bottomText = document.getElementById("bottomText").value.trim();
+
+      if (!file) {
+        document.getElementById("preview").innerHTML = "<p style='color:red;'>請先上傳一張圖片。</p>";
+      } else {
+        document.getElementById("preview").innerHTML = "<p style='color:green;'>已選擇圖片：" + file.name + "，準備生成 Meme...</p><p>⚠️ 注意：這裡只是前端展示，真正生成需要後端 API 或圖片處理程式。</p>";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>BunnyOnt | YouTube to Text</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 40px;
+    }
+    header h1 {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .tool-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 700px;
+      text-align: center;
+    }
+    .tool-box input {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .tool-box button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tool-box button:hover {
+      background-color: #e63939;
+    }
+    #result {
+      margin-top: 20px;
+      text-align: left;
+      background: #f7f7f7;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- 品牌導覽列 -->
+  <header>
+    <img src="../assets/logo/bunnyont-logo.png" alt="BunnyOnt Logo">
+    <h1>BunnyOnt 工具中心</h1>
+    <nav>
+      <a href="../index.html">🏠 回首頁</a>
+    </nav>
+  </header>
+
+  <!-- 工具內容 -->
+  <div class="tool-box">
+    <h2>YouTube to Text</h2>
+    <p>輸入 YouTube 影片連結，轉換成文字稿。</p>
+
+    <!-- 輸入區 -->
+    <input type="text" id="youtubeUrl" placeholder="請輸入 YouTube 影片連結">
+
+    <button id="convertBtn">轉換成文字</button>
+
+    <!-- 結果區 -->
+    <div id="result"></div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // BunnyOnt YouTube to Text 工具互動邏輯
+    document.getElementById("convertBtn").addEventListener("click", () => {
+      const url = document.getElementById("youtubeUrl").value.trim();
+      if (!url) {
+        document.getElementById("result").innerHTML = "<p style='color:red;'>請先輸入 YouTube 影片連結。</p>";
+      } else {
+        document.getElementById("result").innerHTML = "<p style='color:green;'>已輸入連結：" + url + "，準備轉換成文字...</p><p>⚠️ 注意：這裡只是前端展示，真正轉換需要後端 API 或字幕擷取服務。</p>";
+      }
+    });
+  </script>
+</body>
+</html>

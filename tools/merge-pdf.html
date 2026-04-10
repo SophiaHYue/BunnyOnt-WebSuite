@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>BunnyOnt | Merge PDF</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* BunnyOnt 品牌化樣式 */
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 40px;
+    }
+    header h1 {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .tool-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 600px;
+      text-align: center;
+    }
+    .upload-area {
+      border: 2px dashed #aaa;
+      border-radius: 8px;
+      padding: 40px;
+      margin: 20px 0;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+    .upload-area:hover {
+      background-color: #e8e8e8;
+    }
+    .tool-box button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tool-box button:hover {
+      background-color: #e63939;
+    }
+  </style>
+</head>
+<body>
+  <!-- 品牌導覽列 -->
+  <header>
+    <img src="../assets/logo/bunnyont-logo.png" alt="BunnyOnt Logo">
+    <h1>BunnyOnt 工具中心</h1>
+    <nav>
+      <a href="../index.html">🏠 回首頁</a>
+    </nav>
+  </header>
+
+  <!-- 工具內容 -->
+  <div class="tool-box">
+    <h2>Merge PDF</h2>
+    <p>上傳兩個或多個 PDF 檔案，合併成一個 PDF。</p>
+
+    <!-- 上傳區 -->
+    <div class="upload-area" onclick="document.getElementById('pdfFiles').click()">
+      <p>📄 拖曳 PDF 檔案到這裡，或點擊選擇</p>
+      <input type="file" id="pdfFiles" multiple accept="application/pdf" style="display:none;">
+    </div>
+
+    <button id="mergeBtn">合併 PDF</button>
+
+    <!-- 結果區 -->
+    <div id="result" style="margin-top:20px;"></div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // BunnyOnt Merge PDF 工具互動邏輯
+    document.getElementById("mergeBtn").addEventListener("click", () => {
+      const files = document.getElementById("pdfFiles").files;
+      if (files.length < 2) {
+        document.getElementById("result").innerHTML = "<p style='color:red;'>請至少選擇兩個 PDF 檔案。</p>";
+      } else {
+        document.getElementById("result").innerHTML = "<p style='color:green;'>已選擇 " + files.length + " 個 PDF 檔案，準備合併...</p>";
+        // ⚠️ 注意：這裡只是前端展示，真正合併需要後端 API 或 PDF 處理程式
+      }
+    });
+  </script>
+</body>
+</html>
